@@ -10,13 +10,13 @@
 
 #### Background
 
-Git is software that tracks changes to your project. The 'changes'can be as small as a single character or the addition/deletion of entire files.
+Git is software that tracks changes to your project. The 'changes' can be as small as a single character or the addition/deletion of entire files.
 
 Git allows you to store these changes as commits, and track them in a history that can be shared among developers, allowing independent contributions to be merged in with those of other contributors. Frankly, there’s simply no alternative to managing the complexity of a software project at with multiple contributors.
 
-Up to this point, you may be falsely equating the term “Git” to “Github” (or the lesser known “Gitlab”). There is an important distinction to note, that Github/Gitlab are commercial offerings which run Git software under the hood, allowing you to create and manage git repositories in the cloud. 
+There's an important distinction between "Git" and its commercial counterparts, "GitHub" and "GitLab." The latter two are commercial platforms that use Git software to provide cloud-based repository management.
 
-![Image Credit: Matthew J. McCullough (link)](git_crashcourse_img_1.png)
+![Image Credit: Matthew J. McCullough (link)](assets/git_crashcourse_img_1.png)
 
 It’s equally important to understand how to navigate these offerings as it is to understand the basics of Git, so this tutorial will include instructions on how to get setup with Github.
 
@@ -31,9 +31,9 @@ $ git –version
 git version 2.35.1
 ```
 
-The next step is to create a Github account. Remember, this Git-based offering will allow you to store a copy of your git repositories remotely on the web, and give you access to a bunch of their other unique features.
+The next step is to create a Github account. Remember, this Git-based offering will allow you to store a copy of your git repositories remotely on the web, and provide other very useful features!
 
-![Create account](git_crashcourse_img_2.png)
+![Create account](assets/git_crashcourse_img_2.png)
 
 [Link: https://github.com/join](https://github.com/join)
 
@@ -52,13 +52,9 @@ There are a few key concepts that you really need to understand. However, as wit
 
 ##### Repositories
 
-A repository is like Git's implementation of a project folder. Much like a project folder, the repository will encapsulate all of the project files that you need. This can vary depending on what type of project you are working on, but you can count on this including some source code, READMEs, and potentially some binaries or makefiles as well.
+A repository in Git functions as a project folder, holding all necessary files like source code, READMEs, and potentially binaries or makefiles. It also tracks changes (additions, deletions, modifications) over time in the /.git directory.
 
-In addition to these project files, the Git repository will also store the changes (additions, deletions, file modifications) over time in the /.git file.
-
-For a quick demo, let's create a simple Git repository on your computer. Again, use the command line to navigate into your project folder.
-
-Always utilize the 'ls' command to list all files. To navigate in a subdirectory, use the ‘cd’ command. To view the path of your current location, use ‘pwd’ which stands for present-working-directory.
+To create a Git repository, use the command line to navigate to your project folder. Use ‘ls’ to list files, ‘cd’ to change directories, and ‘pwd’ to display your current path.
 
 If you do not have a sample project folder, simply make one using the following command, then navigate into the folder.
 
@@ -80,7 +76,7 @@ The most common way to accomplish this is through an internet hosted application
 
 Navigate to [https://github.com/new](https://github.com/new), and enter in a repository name (ensure this matches your local repository name). You shouldn't need to touch any other settings.
 
-![Create repository](git_crashcourse_img_3.png)
+![Create repository](assets/git_crashcourse_img_3.png)
 
 Once you create this, the instructions that Github provides under `…or push an existing repository from the command line` are sufficient.
 
@@ -90,18 +86,18 @@ $ git branch -M main
 $ git push -u origin main
 ```
 
-The first command here basically defines the remote origin for your local repository, meaning that it's the Github location where you want to publish changes. While that defines, the location, it doesn't actually do anything else. 
+The first command sets the remote origin for your local repository, specifying the GitHub location for publishing changes, but it doesn’t actually push any data.
 
-To actually sync up the version of your project on your computer and the one on Github, you'll need to 'push' via the command line. When you push, use the `-u` flag to specify the previously defined origin as your destination, and then write `main` to specify the branch location
+To sync your local project with GitHub, use the push command with the -u flag to set the origin as your destination and specify the main branch.
 
-We will discuss branches more in Part 2. For now, it's just important to know that you are pushing to the `main` branch directly, which is conventionally where production-ready code lives.
+We’ll cover branches in Part 2, but for now, note that you’re pushing to the main branch, where production-ready code typically resides.
 
-One last thing. It's less common that you'll be initializing repositories in a company-setting, and much more common that you'll be doing the process in reverse. You'll use a command called `clone`, which copies a Github repository from the internet and adds a copy onto your computer. Changes you make locally won't be reflected on Github until you choose to push them later on.
+In a company setting, you'll often clone existing repositories from GitHub to your computer rather than initializing new ones. To reflect local changes on GitHub, you'll need to push them manually.
 
-Make sure you navigate outside of the `hello-world` repository first (use `cd ..` to travel out of a folder), then clone using the URL provided below for a repository that I've created solely for practice.
+Make sure you navigate outside of the `hello-world` repository first (use `cd ..` to travel out of a folder), then clone using the URL provided below for practice:
 
 ```sh
-$ git clone https://github.com/knowledgetransferblog/hello-world-again
+$ git clone https://github.com/brianbrown17/git-kt
 ```
 
 ##### Commits
@@ -114,7 +110,7 @@ $ echo "Hello world" > hello-world.txt
 
 The `>` is a command-line function to send output (in this case the echoed message) to a destination (in this case a .txt file).
 
-If you've made a change to your project, and you're happy with it, then next thing you'd want to do is `commit` it to the repository. But before you commit, you'll want to use the `add` command. Add allows you to specify which files to include in Git's 'staging area', and it's helpful when you've made a lot of changes, but you aren't ready to commit them all.
+If you've made a change to your project, and you're happy with it, then next thing you'd want to do is `commit` it to the repository. But before you commit, use the `add` command to specify which files to include in Git's 'staging area'.
 
 ```sh
 $ git add hello-world.txt
