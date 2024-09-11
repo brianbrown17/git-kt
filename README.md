@@ -1,4 +1,4 @@
-## Git Crash Course
+# Git Crash Course
 
 ### Contents
 
